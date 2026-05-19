@@ -28,7 +28,24 @@ class LinkedList {
         while (current.next) {
             current = current.next;
         }
-        // Returns the full node object
+        // Returns the value from node object
+        return current.value;
+    }
+
+    //get value from a node at index
+    atNode = function (index) {
+        if (!this.head || index < 0 || index >= this.length) {
+            return undefined
+        };
+
+        let current = this.head;
+        let count = 0;
+        // Loop until current.next is index is reached
+        while (count < index) {
+            current = current.next;
+            count++;
+        }
+        // Returns value from the node object
         return current.value;
     }
 
@@ -113,6 +130,10 @@ urList.append("Z");
 urList.prepend("A");
 urList.printList();
 
-console.log(urList.size());
+/*console.log(urList.size());
 console.log(urList.headNode());
-console.log(urList.tailNode());
+console.log(urList.tailNode());*/
+console.log(urList.atNode(0));
+console.log(urList.atNode(1));
+console.log(urList.atNode(2));
+console.log(urList.atNode(3));
